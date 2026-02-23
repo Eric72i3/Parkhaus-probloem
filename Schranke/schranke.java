@@ -8,28 +8,30 @@ public class Schranke{
     // Platzhalter
 
     // An Eric und Piotr:
-    //  Das was wir in der Schule gemacht haben wurde nicht gespeichert, ich hab es jetzt einfach neu gemacht.
-    // Die Namen von den Variablen müssen wir noch mit den anderen abgleichen und ich hab die Class jetzt anders genannt eil es sonzt mit den anderen Datein nicht funktziopniert hat
-    // Habe auch noch eine while schleife eingebaut damit eine ungültige eingabe nicht das ganze Programm zum absturz bringt
-    // Die eingabe ist jetzt auch ein String damit man bei irgendeiner eingabe keinen Absturtz bekommt
-    // eigentlich müssten wir noch eine Schleife drum machen damit das Programm immer weiter läuft, hab ich gerade auchg versucht, hat aber nicht funktioniert
+    // Das, was wir in der Schule gemacht haben, wurde nicht gespeichert. Ich habe es jetzt einfach neu gemacht.
+    // Die Namen der Variablen müssen wir noch mit den anderen abgleichen, und ich habe die Klasse jetzt anders genannt,
+    // weil es sonst mit den anderen Dateien nicht funktioniert hat.
+    // Ich habe auch noch eine While-Schleife eingebaut, damit eine ungültige Eingabe nicht das ganze Programm zum Absturz bringt.
+    // Die Eingabe ist jetzt auch ein String, damit man bei irgendeiner Eingabe keinen Absturz bekommt
+    // Eigentlich müssten wir noch eine Schleife drum machen, damit das Programm immer weiter läuft. Ich habe es gerade auch versucht,
+    // hat aber nicht funktioniert.
 
     public static void main (String args[]){
-            boolean invalide_eingabe = true;
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Möchten Sie einfahren oder ausfahren?");
-            String einfahren = sc.nextLine().trim();
+        boolean invalide_eingabe = true;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Möchten Sie einfahren oder ausfahren?");
+        String einfahren = sc.nextLine().trim();
 
 
-            if (einfahren.equalsIgnoreCase("einfahren")) {
-        // der code der anderen müsse dann hier dazwischen, also sowohl das checken nach freien plätzen als auch das bezahlen
+    if (einfahren.equalsIgnoreCase("einfahren")) {
+    // Der Code der anderen müsste dann hier dazwischen, also sowohl das Prüfen nach freien Plätzen als auch das Bezahlen.
         } 
         while (invalide_eingabe == true) {
         if (einfahren.equalsIgnoreCase("einfahren") && bezahlt == 1 && plfrei == 1) {
             invalide_eingabe = false;
             belegt = belegt + 1;
             bezahlt = 0;
-            plfrei = 0;// Wird oben neu auf 1 gesetzt
+            plfrei = 0; // Wird oben wieder auf 1 gesetzt
             System.out.println("Einfahrschranke wird geöffnet");
         } else if (einfahren.equalsIgnoreCase("einfahren") && bezahlt == 0) {
             invalide_eingabe = false;
@@ -51,5 +53,6 @@ public class Schranke{
     }
     bezahlt = 1;
     plfrei = 1;
+    System.out.println("belegt: " + belegt);
 }
 }
