@@ -12,20 +12,18 @@ public class Schranke{
     // Die Namen von den Variablen müssen wir noch mit den anderen abgleichen und ich hab die Class jetzt anders genannt eil es sonzt mit den anderen Datein nicht funktziopniert hat
     // Habe auch noch eine while schleife eingebaut damit eine ungültige eingabe nicht das ganze Programm zum absturz bringt
     // Die eingabe ist jetzt auch ein String damit man bei irgendeiner eingabe keinen Absturtz bekommt
+    // eigentlich müssten wir noch eine Schleife drum machen damit das Programm immer weiter läuft, hab ich gerade auchg versucht, hat aber nicht funktioniert
 
     public static void main (String args[]){
-        boolean invalide_eingabe = true;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Möchten Sie einfahren oder ausfahren?");
-        String einfahren = sc.nextLine().trim();
-        
+            boolean invalide_eingabe = true;
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Möchten Sie einfahren oder ausfahren?");
+            String einfahren = sc.nextLine().trim();
 
-        if (einfahren.equalsIgnoreCase("einfahren")) {
+
+            if (einfahren.equalsIgnoreCase("einfahren")) {
         // der code der anderen müsse dann hier dazwischen, also sowohl das checken nach freien plätzen als auch das bezahlen
         } 
-        else
-
-
         while (invalide_eingabe == true) {
         if (einfahren.equalsIgnoreCase("einfahren") && bezahlt == 1 && plfrei == 1) {
             invalide_eingabe = false;
