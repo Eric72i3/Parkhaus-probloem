@@ -1,1 +1,21 @@
+import java.util.Scanner;
 
+public class ParkpreisBerechnung {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Parkdauer in Stunden eingeben: ");
+        int stunden = scanner.nextInt();
+
+        double preis;
+
+        if (stunden <= 1) {
+            preis = 1.0;
+
+
+
+        System.out.println("Zu zahlender Parkpreis: " + preis + " €");
+
+        scanner.close();
+    }
+}
