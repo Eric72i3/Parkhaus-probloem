@@ -15,11 +15,18 @@ public class Schranke{
 
     public static void main (String args[]){
         boolean invalide_eingabe = true;
-        while (invalide_eingabe == true) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Möchten Sie einfahren oder ausfahren?");
-        String einfahren = sc.nextLine();
+        String einfahren = sc.nextLine().trim();
+        
 
+        if (einfahren.equalsIgnoreCase("einfahren")) {
+        // der code der anderen müsse dann hier dazwischen, also sowohl das checken nach freien plätzen als auch das bezahlen
+        } 
+        else
+
+
+        while (invalide_eingabe == true) {
         if (einfahren.equalsIgnoreCase("einfahren") && bezahlt == 1 && plfrei == 1) {
             invalide_eingabe = false;
             belegt = belegt + 1;
@@ -38,7 +45,10 @@ public class Schranke{
             invalide_eingabe = false;
             System.out.println("Ausfahrschranke wird geöffnet");
         } else {
-            System.out.println("ungültige eingabe");  // danach schleife neustarten
+            
+            System.out.println("ungültige eingabe"); 
+            System.out.println("Möchten Sie einfahren oder ausfahren? Bitte geben Sie 'einfahren' oder 'ausfahren' ein");
+            einfahren = sc.nextLine().trim();
         }
     }
     bezahlt = 1;
