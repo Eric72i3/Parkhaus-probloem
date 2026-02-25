@@ -13,49 +13,102 @@ public class Schranke{
     // weil es sonst mit den anderen Dateien nicht funktioniert hat.
     // Ich habe auch noch eine While-Schleife eingebaut, damit eine ungültige Eingabe nicht das ganze Programm zum Absturz bringt.
     // Die Eingabe ist jetzt auch ein String, damit man bei irgendeiner Eingabe keinen Absturz bekommt
-    // Eigentlich müssten wir noch eine Schleife drum machen, damit das Programm immer weiter läuft. Ich habe es gerade auch versucht,
-    // hat aber nicht funktioniert.
 
     public static void main (String args[]){
         Scanner sc = new Scanner(System.in);
-        while (true) {
+        boolean laeuft = true;
+
+        System.out.println("Geben Sie den Wert für belegt ein");
+        belegt = sc.nextInt();
+        System.out.println("Geben Sie den Wert für gesamt ein");
+        gesamt = sc.nextInt();
+        sc.nextLine(); // Loopt sonst in der nächsten Eingabe
+        System.out.println("Debugging - Befehle: print_debug, set_var, beenden");
+        System.out.println("--------------------------------------------------------------------");
+        
+
+        while (laeuft == true) {
+
             boolean invalide_eingabe = true;
+            boolean ef = false;
+            boolean af = false;
 
             System.out.println("Möchten Sie einfahren oder ausfahren?");
             String einfahren = sc.nextLine().trim();
 
-            if (einfahren.equalsIgnoreCase("einfahren")) {
-                // Der Code der anderen müsste dann hier dazwischen, also sowohl das Prüfen nach freien Plätzen als auch das Bezahlen.
-            }
-
             while (invalide_eingabe == true) {
-                if (einfahren.equalsIgnoreCase("einfahren") && bezahlt == 1 && plfrei == 1) {
+
+                //Für einfache Anpassungen
+                if (einfahren.equalsIgnoreCase("einfahren")) {
+                    ef = true;
                     invalide_eingabe = false;
+                }
+                else if (einfahren.equalsIgnoreCase("ausfahren")) {
+                    af = true;
+                    invalide_eingabe = false;
+                }
+                else if (einfahren.equalsIgnoreCase("print_debug")) { // Debugging
+                    System.out.println("belegt: " + belegt + ", gesamt: " + gesamt + ", bezahlt: " + bezahlt + ", plfrei: " + plfrei + ", ef: " + ef + ", af: " + af );
+                    System.out.println("--------------------------------------------------------------------");
+                    break;
+                }
+                else if (einfahren.equalsIgnoreCase("set_var")) { // Debugging
+                    System.out.println("Geben Sie den Wert für belegt ein");
+                    belegt = sc.nextInt();
+                    System.out.println("Geben Sie den Wert für gesamt ein");
+                    gesamt = sc.nextInt();
+                    sc.nextLine(); // Loopt sonst in der nächsten Eingabe
+                    System.out.println("--------------------------------------------------------------------");
+                    break;
+                }
+                else if (einfahren.equalsIgnoreCase("beenden")) { // Programm beenden
+                    System.out.println("Programm wird beendet");
+                    laeuft = false;
+                break;
+                }
+
+
+                if (ef == true) {
+                // Der Code zum Prüfen der Plätze müsste hier rein
+                }
+
+
+                if (ef == true && plfrei == 1) {
+                // die Preisberechnung muss hier rein
+                }
+
+
+                if (ef == true && bezahlt == 1 && plfrei == 1) {
                     belegt = belegt + 1;
                     bezahlt = 0;
                     plfrei = 0; // Wird oben wieder auf 1 gesetzt
-                    System.out.println("Einfahrschranke wird geöffnet");
-                } else if (einfahren.equalsIgnoreCase("einfahren") && bezahlt == 0) {
-                    invalide_eingabe = false;
+                    System.out.println("Einfahrschranke wird geöffnet, Willkommen");
+                } 
+                
+                else if (ef == true && bezahlt == 0) {
                     System.out.println("Bitte bezahlen Sie zuerst");
                 }
-                // Sollte nie passieren, da man ohne freie Plätze nicht bezahlen kann, aber zur Sicherheit
-                else if (einfahren.equalsIgnoreCase("einfahren") && plfrei == 0) {
+                
+                else if (ef == true && plfrei == 0) {
                     System.out.println("Es sind keine freien Plätze mehr vorhanden");
-                } else if (einfahren.equalsIgnoreCase("ausfahren")) {
+                } 
+                
+                else if (af == true) {
                     belegt = belegt - 1;
-                    invalide_eingabe = false;
-                    System.out.println("Ausfahrschranke wird geöffnet");
-                } else {
+                    System.out.println("Ausfahrschranke wird geöffnet, danke für Ihren Besuch");
+                } 
+                
+                else {
                     System.out.println("ungültige eingabe");
                     System.out.println("Möchten Sie einfahren oder ausfahren? Bitte geben Sie 'einfahren' oder 'ausfahren' ein");
                     einfahren = sc.nextLine().trim();
                 }
+                System.out.println("--------------------------------------------------------------------");
             }
-
+            // Platzhalter
             bezahlt = 1;
             plfrei = 1;
-            System.out.println("belegt: " + belegt);
+            // Platzhalter
         }
-}
+    }
 }
