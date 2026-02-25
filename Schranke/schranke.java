@@ -13,6 +13,7 @@ public class Schranke{
     // weil es sonst mit den anderen Dateien nicht funktioniert hat.
     // Ich habe auch noch eine While-Schleife eingebaut, damit eine ungültige Eingabe nicht das ganze Programm zum Absturz bringt.
     // Die Eingabe ist jetzt auch ein String, damit man bei irgendeiner Eingabe keinen Absturz bekommt
+    //debugging Befehle gibt es jetzt auch
 
     public static void main (String args[]){
         Scanner sc = new Scanner(System.in);
