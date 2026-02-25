@@ -3,7 +3,6 @@ public class Schranke{
     // Platzhalter
     static int belegt = 20;
     static int gesamt = 200;
-    static int bezahlt = 1;
     static int plfrei = 1;
     // Platzhalter
 
@@ -18,6 +17,7 @@ public class Schranke{
     public static void main (String args[]){
         Scanner sc = new Scanner(System.in);
         boolean laeuft = true;
+        int bezahlt = 0;
 
         System.out.println("Geben Sie den Wert für belegt ein");
         belegt = sc.nextInt();
@@ -75,7 +75,30 @@ public class Schranke{
 
 
                 if (ef == true && plfrei == 1) {
-                // die Preisberechnung muss hier rein
+                    System.out.print("Parkdauer in Stunden eingeben: ");
+                    double stunden = sc.nextDouble();
+                    sc.nextLine(); // Loopt sonst in der nächsten Eingabe
+                    double preis;
+
+                    if (stunden <= 1) {
+                        preis = 1.0;
+                    }
+                    else {
+                        preis = stunden * 1.0;
+                    }
+
+                    System.out.println("Zu zahlender Parkpreis: " + preis + " €, bitte ok eingeben, um zu Zahlen");
+                    String bezahlt_eingabe = sc.nextLine().trim();
+                     if (bezahlt_eingabe.equalsIgnoreCase("ok")) {
+                          bezahlt = 1;
+                         System.out.println("Zahlung bestätigt");
+
+                    }
+                     else {
+                        System.out.println("Zahlung abgebrochen, bitte erneut einfahren");
+                        break;
+                    }
+
                 }
 
 
@@ -107,7 +130,6 @@ public class Schranke{
                 System.out.println("--------------------------------------------------------------------");
             }
             // Platzhalter
-            bezahlt = 1;
             plfrei = 1;
             // Platzhalter
         }
