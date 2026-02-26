@@ -7,17 +7,19 @@ public class Parkhaus{
     int besetzt=0;
     int freieplaetze = gesamt-besetzt;
 
-    System.out.println(freieplaetze);
+    System.out.println("Verfügbare Parkplätze: " + freieplaetze);
 
     int einfahren;
 
         if (freieplaetze>0) {
             einfahren = 1;
+            System.out.println("Darf einfahren" );
         }
         else {
             einfahren = 0;
+            System.out.println("Darf nicht einfahren" );
         }
-        System.out.println("Darf einfahren: " + einfahren);
+
 
   }
 }
