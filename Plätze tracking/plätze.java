@@ -19,7 +19,5 @@ public class Parkhaus{
             einfahren = 0;
             System.out.println("Darf nicht einfahren" );
         }
-
-
   }
 }
