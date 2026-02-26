@@ -2,13 +2,6 @@ import java.util.Scanner;
 public class Schranke{
 
 
-    // An Eric und Piotr:
-    // Das, was wir in der Schule gemacht haben, wurde nicht gespeichert. Ich habe es jetzt einfach neu gemacht.
-    // Die Namen der Variablen müssen wir noch mit den anderen abgleichen, und ich habe die Klasse jetzt anders genannt,
-    // weil es sonst mit den anderen Dateien nicht funktioniert hat.
-    // Ich habe auch noch eine While-Schleife eingebaut, damit eine ungültige Eingabe nicht das ganze Programm zum Absturz bringt.
-    // Die Eingabe ist jetzt auch ein String, damit man bei irgendeiner Eingabe keinen Absturz bekommt
-    //debugging Befehle gibt es jetzt auch
 
     public static void main (String args[]){
         Scanner sc = new Scanner(System.in);
@@ -16,7 +9,7 @@ public class Schranke{
         int belegt = 0;
         int gesamt = 0;
         int bezahlt = 0;
-        int plfrei = 1; // Platzhalter, muss noch mit der tatsächlichen Anzahl der freien Plätze verknüpft werden
+        int plfrei = 0; // Platzhalter, muss noch mit der tatsächlichen Anzahl der freien Plätze verknüpft werden
 
         System.out.println("Geben Sie den Wert für belegt ein");
         belegt = sc.nextInt();
@@ -39,11 +32,11 @@ public class Schranke{
             while (invalide_eingabe == true) {
 
                 //Für einfache Anpassungen
-                if (einfahren.equalsIgnoreCase("einfahren")) {
+                if (einfahren.equalsIgnoreCase("ein")) {
                     ef = true;
                     invalide_eingabe = false;
                 }
-                else if (einfahren.equalsIgnoreCase("ausfahren")) {
+                else if (einfahren.equalsIgnoreCase("aus")) {
                     af = true;
                     invalide_eingabe = false;
                 }
@@ -69,8 +62,22 @@ public class Schranke{
 
 
                 if (ef == true) {
-                // Der Code zum Prüfen der Plätze müsste hier rein
+                  int freieplaetze = gesamt-belegt;
+
+                System.out.println("Verfügbare Parkplätze: " + freieplaetze);
+
+
+        if (freieplaetze>0) {
+            plfrei = 1;
+            System.out.println("Darf einfahren" );
+        }
+        else {
+            plfrei = 0;
+                     System.out.println("Darf nicht einfahren" );
+                     break;
+                    }
                 }
+                
 
 
                 if (ef == true && plfrei == 1) {
@@ -117,7 +124,7 @@ public class Schranke{
                 
                 else {
                     System.out.println("ungültige eingabe");
-                    System.out.println("Möchten Sie einfahren oder ausfahren? Bitte geben Sie 'einfahren' oder 'ausfahren' ein");
+                    System.out.println("Möchten Sie einfahren oder ausfahren? Bitte geben Sie 'ein' oder 'aus' ein");
                     einfahren = sc.nextLine().trim();
                 }
                 System.out.println("--------------------------------------------------------------------");
@@ -126,5 +133,8 @@ public class Schranke{
             plfrei = 1;
             // Platzhalter
         }
+    }
+}
+
     }
 }
