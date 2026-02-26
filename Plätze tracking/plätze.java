@@ -1,12 +1,13 @@
 public class Parkhaus{
     public static void main (String args[]){
-        int gesamt = 200;
-        boolean darfEinfahren;
+        int einfahren;
 
-        if (gesamt>0) {
-            
+        if (freieplaetze>0) {
+            einfahren = 1;
         }
-
-
+        else {
+            einfahren = 0;
+        }
+        System.out.println("Darf einfahren: " + einfahren);
     }
 }
