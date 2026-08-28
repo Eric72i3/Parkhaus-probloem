@@ -1,4 +1,4 @@
-public class Parkhaus{
+class Plätze{
     public static int frei(int gesamt, int besetzt) {return gesamt-besetzt;}
     
     public static void main (String args[]){
